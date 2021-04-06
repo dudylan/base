@@ -5,24 +5,30 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.6.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.4.3</version>
     </parent>
     <groupId>com.du.dylan</groupId>
     <artifactId>base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>base</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
+        <base.version>0.0.1-SNAPSHOT</base.version>
         <java.version>1.8</java.version>
         <lombok.version>1.18.10</lombok.version>
         <mybatis-plus.version>3.3.1.tmp</mybatis-plus.version>
+        <freemarker.version>2.3.30</freemarker.version>
+        <swagger.version>2.9.2</swagger.version>
+        <knife4j.version>2.0.7</knife4j.version>
+        <shiro.version>1.7.1</shiro.version>
     </properties>
     <!-- 模块说明：这里声明多个子模块 -->
     <modules>
         <module>base-common</module>
         <module>base-generator</module>
+        <module>base-dao</module>
     </modules>
 
     <!-- 版本说明：这里统一管理依赖的版本号 -->
@@ -38,6 +44,34 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+
+            <!-- 自动生成代码工具 start-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+            <!-- 自动生成代码工具 end-->
+            <!-- swagger start-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!-- swagger end-->
+
+            <!-- shiro start-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring-boot-starter</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <!-- shiro end -->
         </dependencies>
     </dependencyManagement>
 
@@ -48,12 +82,32 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
