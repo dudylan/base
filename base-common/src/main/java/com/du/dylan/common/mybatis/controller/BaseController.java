@@ -3,6 +3,8 @@ package com.du.dylan.common.mybatis.controller;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.du.dylan.common.mybatis.entity.BaseEntity;
 import com.du.dylan.common.respone.Rb;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

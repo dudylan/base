@@ -3,6 +3,9 @@ package com.du.dylan.common.exception;
 import com.du.dylan.common.constants.ErrorEnum;
 import com.du.dylan.common.respone.Rb;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.UnauthenticatedException;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -20,6 +23,13 @@ public class GlobalExceptionHandler {
     public Rb emptyResultExceptionHandler(Exception e){
          log.error("未知异常：{}",e);
          return Rb.failed(ErrorEnum.E_500);
+    }
+
+
+    @ExceptionHandler({UnauthenticatedException.class, UnauthorizedException.class})
+    public Rb doError(AuthorizationException e){
+        log.error("AuthorizationException:{}",e);
+        return Rb.failed(ErrorEnum.E_502);
     }
 
     //请求路径找不到

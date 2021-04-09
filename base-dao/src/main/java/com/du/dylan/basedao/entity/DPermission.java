@@ -34,6 +34,6 @@ public class DPermission extends BaseEntity {
     /*
     * 菜单 id
     * */
-    private Integer menuId;
+    private Integer roleId;
 
 }
