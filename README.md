@@ -5,7 +5,7 @@
   2. shiro
   3. jwt
   4. mybatis-plus
-  5. 多模块项目
+  5. maven 多模块项目
 # 项目功能
   1. 实现mybatis-plus 的逻辑删除字段
   2. 实现自动录入修改时间，创建时间字段
