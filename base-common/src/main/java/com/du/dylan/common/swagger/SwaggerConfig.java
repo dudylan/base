@@ -43,7 +43,7 @@ public class SwaggerConfig {
                 .groupName("2.X版本")
                 .select()
                 //这里指定Controller扫描包路径
-                .apis(RequestHandlerSelectors.basePackage("com.du.dylan.basedao.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.du.dylan.shiroweb.controller"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;

@@ -1,4 +1,4 @@
-package com.du.dylan.basedao.shiro;
+package com.du.dylan.shiroweb.shiro;
 
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;

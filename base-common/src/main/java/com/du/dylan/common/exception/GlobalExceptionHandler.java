@@ -15,7 +15,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     /**
-     * 查询结果为空时处理
+     * 未知异常
      * @param e
      * @return
      */
@@ -26,6 +26,9 @@ public class GlobalExceptionHandler {
     }
 
 
+    /*
+    *  权限不够
+    * */
     @ExceptionHandler({UnauthenticatedException.class, UnauthorizedException.class})
     public Rb doError(AuthorizationException e){
         log.error("AuthorizationException:{}",e);

@@ -1,11 +1,11 @@
-package com.du.dylan.basedao.controller;
+package com.du.dylan.shiroweb.controller;
 
 
 import com.du.dylan.basedao.entity.DPermission;
 import com.du.dylan.basedao.service.IDPermissionService;
+import com.du.dylan.common.mybatis.controller.BaseController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.du.dylan.common.mybatis.controller.BaseController;
 
 /**
  * <p>

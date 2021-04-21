@@ -1,5 +1,6 @@
 package com.du.dylan.basedao.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.du.dylan.common.mybatis.entity.BaseEntity;
 import java.time.LocalDateTime;
 import lombok.Data;
@@ -45,5 +46,8 @@ public class DUser extends BaseEntity {
      * 角色id
      */
     private Integer roleId;
+
+    @TableField(exist = false)// 忽视与数据库关联
+    private String igrone;
 
 }

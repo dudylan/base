@@ -1,4 +1,4 @@
-package com.du.dylan.basedao.shiro;
+package com.du.dylan.shiroweb.shiro;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;

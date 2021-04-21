@@ -1,4 +1,4 @@
-package com.du.dylan.basedao.shiro;
+package com.du.dylan.shiroweb.shiro;
 
 import org.apache.shiro.authc.AuthenticationToken;
 
