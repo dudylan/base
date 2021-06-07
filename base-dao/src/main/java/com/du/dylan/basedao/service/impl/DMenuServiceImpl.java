@@ -19,4 +19,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class DMenuServiceImpl extends ServiceImpl<DMenuMapper, DMenu> implements IDMenuService {
 
+
 }
