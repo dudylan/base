@@ -14,3 +14,4 @@
   5. 实现shiro框架的权限
   6. 对接swagger-bootstrap-ui*2
   7. 使用mvn clean package -Dmaven.test.skip=true 即可打包
+  8. 动态切换数据源，也可以通过数据库存放 多数据源的链接
