@@ -1,33 +1,61 @@
 #mysql数据库
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/dylan?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
-    username: root
-    password: 123456xxf
-    driver-class-name: com.mysql.cj.jdbc.Driver #
-    hikari:
-      connection-timeout: 60000
-      idle-timeout: 60000
-      validation-timeout: 3000
-      max-lifetime: 60000
-      login-timeout: 5
-      maximum-pool-size: 60
-      minimum-idle: 10
-      read-only: false
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/dylan?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      username: root
+      password: 123456xxf
+      driver-class-name: com.mysql.cj.jdbc.Driver #
+      initial-size: 5 # 初始化大小，最小，最大
+      min-idle: 5
+      max-active: 40
+      max-wait: 60000 # 配置获取连接等待超时的时间
+      time-between-eviction-runs-millis: 60000 # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 300000 # 配置一个连接在池中最小生存的时间，单位是毫秒
+      validation-query: select 1 #用来检测连接是否有效的sql，要求是一个查询语句。 #如果validationQuery为null，testOnBorrow、testOnReturn testWhileIdle都不会其作用。
+      test-while-idle: true #建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于 timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+      test-on-return: false #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-borrow: false #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      pool-prepared-statements: false #是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭。
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall #配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙 ,log4j
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;pooling-connection-info=true  #通过connectProperties属性来打开mergeSql功能；慢SQL记录 # pooling-connection-info=true 打开PSCache，并且指定每个连接上PSCache的大小
+      connection-error-retry-attempts: 0
+      break-after-acquire-failure: true #如果数据源连不上，会一直重试性质的一直链接，会无限报异常，  connection-error-retry-attempts: 0 break-after-acquire-failure: true 关掉 无限建立链接
+    template:
+      url: jdbc:mysql://127.0.0.1:3306/${databaseName}?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      username: root
+      password: 123456xxf
+      driver-class-name: com.mysql.cj.jdbc.Driver #
+      initial-size: 5 # 初始化大小，最小，最大
+      min-idle: 5
+      max-active: 40
+      max-wait: 60000 # 配置获取连接等待超时的时间
+      time-between-eviction-runs-millis: 60000 # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 300000 # 配置一个连接在池中最小生存的时间，单位是毫秒
+      validation-query: select 1 #用来检测连接是否有效的sql，要求是一个查询语句。 #如果validationQuery为null，testOnBorrow、testOnReturn testWhileIdle都不会其作用。
+      test-while-idle: true #建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于 timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+      test-on-return: false #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-borrow: false #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      pool-prepared-statements: false #是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭。
+      max-pool-prepared-statement-per-connection-size: 20
+      connection-error-retry-attempts: 0
+      break-after-acquire-failure: true
+      filters: stat,wall #配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙 ,log4j
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;pooling-connection-info=true  #通过connectProperties属性来打开mergeSql功能；慢SQL记录 # pooling-connection-info=true 打开PSCache，并且指定每个连接上PSCache的大小
   mvc:
-    throw-exception-if-no-handler-found: true
+    throw-exception-if-no-handler-found: true # 使异常拦截器可以拦截到404 异常
     static-path-pattern: /**
   resources:
-    add-mappings: false
+    add-mappings: false # 使异常拦截器可以拦截到404 异常
   static-locations:
     - classpath:resources
     - classpath:static
-
+  profiles:
+    active: mul-dev
 logging:
   level:
     com.du.dylan: debug
   file:
     path: log
   max-history: 30
-
-

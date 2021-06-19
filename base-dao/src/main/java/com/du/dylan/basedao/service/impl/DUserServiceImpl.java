@@ -19,4 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class DUserServiceImpl extends ServiceImpl<DUserMapper, DUser> implements IDUserService {
 
+    @Override
+    public void getID() {
+        getById(1);
+    }
 }

@@ -1,9 +1,10 @@
 package com.du.dylan.common.respone;
 
 
-import com.baomidou.mybatisplus.extension.api.IErrorCode;
-import com.baomidou.mybatisplus.extension.enums.ApiErrorCode;
-import com.baomidou.mybatisplus.extension.exceptions.ApiException;
+import com.du.dylan.common.mybatisplus.api.IErrorCode;
+import com.du.dylan.common.mybatisplus.enums.ApiErrorCode;
+import com.du.dylan.common.mybatisplus.exceptions.ApiException;
+
 import java.io.Serializable;
 import java.util.Optional;
 
@@ -116,7 +117,7 @@ public class Rb<T> implements Serializable {
     }
 
     protected boolean canEqual(final Object other) {
-        return other instanceof com.baomidou.mybatisplus.extension.api.R;
+        return other instanceof com.du.dylan.common.mybatisplus.api.R;
     }
 
     @Override

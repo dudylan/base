@@ -1,7 +1,6 @@
 package com.du.dylan.shiroweb.shiro;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.du.dylan.basedao.entity.DPermission;
 import com.du.dylan.basedao.entity.DRole;
 import com.du.dylan.basedao.entity.DUser;
@@ -18,6 +17,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
 import java.util.HashSet;
 import java.util.List;

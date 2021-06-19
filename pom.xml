@@ -18,18 +18,22 @@
         <base.version>0.0.1-SNAPSHOT</base.version>
         <java.version>1.8</java.version>
         <lombok.version>1.18.10</lombok.version>
-        <mybatis-plus.version>3.3.1.tmp</mybatis-plus.version>
+        <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
         <freemarker.version>2.3.30</freemarker.version>
         <swagger.version>2.9.2</swagger.version>
         <knife4j.version>2.0.7</knife4j.version>
         <shiro.version>1.7.1</shiro.version>
         <jwt.version>3.14.0</jwt.version>
+        <druid.version>1.1.18</druid.version>
     </properties>
     <!-- 模块说明：这里声明多个子模块 -->
     <modules>
         <module>base-common</module>
         <module>base-generator</module>
         <module>base-dao</module>
+        <module>base-multipledatasource</module>
+        <module>shiro-web</module>
+        <module>base-dynamic</module>
     </modules>
 
     <!-- 版本说明：这里统一管理依赖的版本号 -->
@@ -44,6 +48,21 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.du.dylan</groupId>
+                <artifactId>base-common</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
 
             <!-- 自动生成代码工具 start-->

@@ -1,6 +1,7 @@
 package com.du.dylan.common.constants;
 
-import com.baomidou.mybatisplus.extension.api.IErrorCode;
+
+import com.du.dylan.common.mybatisplus.api.IErrorCode;
 
 public enum ErrorEnum implements IErrorCode {
     /*

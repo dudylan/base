@@ -13,4 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IDUserService extends IService<DUser> {
 
+
+    public void getID();
 }

@@ -7,6 +7,7 @@ import com.du.dylan.common.constants.ErrorEnum;
 import com.du.dylan.common.respone.Rb;
 import com.du.dylan.shiroweb.shiro.JwtUtil;
 import org.apache.shiro.authz.UnauthorizedException;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
